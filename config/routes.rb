@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   get "restaurants", to: "restaurants#index"
   get "restaurants/new", to: "restaurants#new"
   post "restaurants", to: "restaurants#create"
+  resources :restaurants, only: [:show] do
+    # resources :reviews, only: [:show]
+    resources :reviews, only: [:new, :create]
+  end
 end
